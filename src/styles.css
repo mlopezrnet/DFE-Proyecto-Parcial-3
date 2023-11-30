@@ -1,1 +1,451 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Source+Sans+3:wght@600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #15252b;
+    background-color: #f5f7fa;
+}
+
+/* #region ENCABEZADO */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #131c1f;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+#logo {
+    display: flex;
+    height: 54px;
+    width: auto;
+    margin: 1.5rem;
+}
+
+#logo>img {
+    width: auto;
+    padding: 5px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    font-size: 1.2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+}
+
+a:active,
+a:focus,
+a:hover {
+    text-decoration: none;
+    color: #00aeef;
+}
+
+nav a {
+    text-decoration: none;
+    transition: color 0.1s, background-color 0.1s;
+    color: #9aa0a6;
+    font-weight: 600;
+    position: relative;
+    display: block;
+    padding: 16px 0;
+    margin: 0 12px;
+    letter-spacing: 1px;
+    line-height: 16px;
+    text-transform: uppercase;
+    transition: color 0.1s, background-color 0.1s, padding 0.2s ease-in;
+}
+
+nav a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #fff200;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: color 0.1s, transform 0.2s ease-out;
+}
+
+nav a:active::before {
+    background-color: #000;
+}
+
+a:focus::before,
+nav a:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+nav a.selected::before {
+    background-color: #ec008c;
+    transform-origin: left top;
+    transform: scale(1, 1);
+    transition: none;
+}
+
+nav a.selected {
+    color: #00aeef;
+}
+
+/* #endregion */
+
+/* #region CONTENIDO */
+main {
+    padding: 100px 50px 20px 50px;
+}
+
+main h1 {
+    font-family: "Courgette", cursive;
+    font-size: 2.75rem;
+    text-align: center;
+    display: block;
+    margin-inline: auto;
+    width: max-content;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(45deg, #FEDB37 2%, #D1B464 25%, #FEDB37 40%, #D1B464 60%, #FEDB37 95%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    user-select: none;
+}
+
+main h1 span {
+    font-size: 1.25rem;
+    display: inline-block;
+    margin-inline: 0.5rem;
+    vertical-align: 0.5rem;
+}
+
+/* Estilos para la tabla */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0;
+}
+
+tr th {
+    color: white;
+}
+
+tbody {
+    border: 2px solid #d1d1d1;
+}
+
+td {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+td h3:not(.franchise-leading-row h3) {
+    padding-block: 0.5rem;
+}
+
+.franchise-leading-row td {
+    background-color: #f3bb54;
+    border: 3px solid #e4a839;
+    text-align: left;
+    z-index: 1;
+}
+
+th {
+    background-color: #4CAF50;
+    border: 3px solid #4CAF50;
+    color: white;
+    padding: 16px;
+    z-index: 0;
+}
+
+.rating {
+    display: inline-block;
+    background-color: #d3d3d3;
+    border-radius: 3px;
+    margin-left: 5px;
+    padding-inline: 3px;
+    font-size: 12px;
+}
+
+.genre {
+    display: inline-block;
+    padding-inline: 6px;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.length {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 100;
+    color: gray;
+}
+
+.star-rating {
+    color: gold;
+    font-size: 1.5rem;
+}
+
+.room {
+    color: #aa7b23
+}
+
+/* Estilos para la sección de filtros */
+#filter-section, .filter-section {
+    padding: 0 1rem 1rem 1rem;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Estilos para los campos de filtro */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    flex-grow: 1;
+    min-width: 150px;
+    font-size: 16px;
+    padding: 0.6rem;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+}
+
+select {
+    flex-grow: 1;
+    min-width: 200px;
+    font-size: 16px;
+    padding: 0.6rem;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+}
+
+input[type="text"]:focus,
+input[type="text"]:hover,
+input[type="text"]:active,
+input[type="number"]:focus,
+input[type="number"]:hover,
+input[type="number"]:active {
+    border: 1px solid #354a5f;
+}
+
+/* Estilos para el botón del filtro */
+button {
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    padding: 0.6rem 1.5rem;
+}
+
+button#apply-filters {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+button#apply-filters:hover {
+    background-color: #358338;
+}
+
+button#reset-filters {
+    background-color: #f3f6f9;
+    color: #15252b;
+    border: 1px solid #d1d1d1;
+}
+
+button#reset-filters:hover {
+    background-color: #e2e9f1;
+}
+
+/* #region MODAL DE VENTAS */
+
+dialog {
+    background-color: #f5f7fa;
+    border: 2px solid #d1d1d1;
+    border-radius: 3px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+dialog#sale-modal {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 800px;
+}
+
+.btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+.sale-fields-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & .form-field {
+        flex: 1;
+    }
+
+    & label {
+        margin-bottom: 0.5rem;
+    }
+
+}
+
+#sale-date-field {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+.fa-trash-alt {
+    color: rgb(156, 17, 17);
+}
+
+.fa-edit {
+    color:rgb(21, 54, 116);
+}
+
+.btn-sm {
+    border: 1px solid #d1d1d1;
+    width: 42px;
+    padding: 0.6rem;
+    margin-right: 0.25rem;
+    margin-bottom: 0.1rem;
+}
+
+button[data-action="edit"]:hover {
+    background-color: lightblue;
+    border-color: rgb(86, 124, 180);
+}
+
+button[data-action="delete"]:hover {
+    background-color: rgb(211, 73, 73);
+    border-color: rgb(156, 17, 17);
+
+    & .fa-trash-alt {
+        color: white;
+    }
+}
+
+#addSale, .btn-submit {
+    background-color: #2f78b4;
+    color: #fff;
+    font-weight: 600;
+
+    &:hover {
+        background-color: #1c5f9b;
+    }
+}
+
+#save-sale {
+    margin-top: 1rem;
+}
+
+.actionColumn {
+    width: 120px;
+}
+
+.promoColumn {
+    width: 200px;
+}
+
+/* #endregion */
+
+
+/* #endregion */
+
+/*#region RESPONSIVE */
+@media screen and (max-width: 1024px) {
+    nav {
+        display: none;
+    }
+
+    header {
+        justify-content: center;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    .summary {
+        display: none;
+    }
+}
+
+/*#endregion */
