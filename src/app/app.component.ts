@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <app-main></app-main>
+    <router-outlet></router-outlet>
+  `,
+  styles: []
 })
 export class AppComponent {
-  title = 'playnstars-gerencial';
+  title = 'angular-sales-app';
 }

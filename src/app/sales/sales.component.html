@@ -1,0 +1,38 @@
+<h1><span>💸</span>Ventas de Boletos<span>💸</span></h1>
+
+<div class="table-container">
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Folio</th>
+        <th>Sucursal</th>
+        <th>Película</th>
+        <th>Fecha</th>
+        <th>Función</th>
+        <th>Asientos</th>
+        <th class="promoColumn">Promoción</th>
+        <th>Pago</th>
+        <th class="actionColumn"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{ sale.id }}</td>
+        <td>{{ sale.franchise.name }}</td>
+        <td>{{ sale.movie.name }}</td>
+        <td>{{ sale.date }}</td>
+        <td>
+          <p class="room">Sala {{ sale.room }}</p>
+          <p>{{ sale.showtime }}</p>
+        </td>
+        <td>{{ sale.seats }}</td>
+        <td>{{ sale.promoDescription }}</td>
+        <td>{{ sale.total | currency:'MXN' }}</td>
+        <td>
+          <button class="btn-sm" (click)="onEdit()"><i class="fas fa-edit"></i></button>
+          <button class="btn-sm" (click)="onDelete()"><i class="far fa-trash-alt"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
